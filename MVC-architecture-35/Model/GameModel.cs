@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MVVM_architecture_35.Model
+namespace MVC_architecture_35.Model
 {
     public enum GameState
     {

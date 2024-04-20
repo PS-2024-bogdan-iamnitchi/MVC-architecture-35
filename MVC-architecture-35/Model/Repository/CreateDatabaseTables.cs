@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MVVM_architecture_35.Model.Repository
+namespace MVC_architecture_35.Model.Repository
 {
     public class CreateDatabaseTables
     {

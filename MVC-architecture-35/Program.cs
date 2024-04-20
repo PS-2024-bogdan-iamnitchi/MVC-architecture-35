@@ -1,11 +1,5 @@
-﻿using MVC_architecture_35.Language;
-using MVVM_architecture_35.Model.Repository;
-using MVVM_architecture_35.View;
+﻿using MVC_architecture_35.Controller;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MVC_architecture_35
@@ -18,11 +12,10 @@ namespace MVC_architecture_35
         [STAThread]
         static void Main()
         {
-            
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new EditPlayersGUI());
+            LoginController loginController = new LoginController();
+            Application.Run(loginController.GetView());
         }
     }
 }

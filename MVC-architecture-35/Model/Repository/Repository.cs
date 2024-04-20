@@ -2,7 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 
-namespace MVVM_architecture_35.Model.Repository
+namespace MVC_architecture_35.Model.Repository
 {
     public class Repository
     {
@@ -11,7 +11,7 @@ namespace MVVM_architecture_35.Model.Repository
         public Repository()
         {
             string connectionString = "Data Source=BOGDAN\\SQLEXPRESS;";
-            connectionString += "Initial Catalog=PS_MVVM_35;";
+            connectionString += "Initial Catalog=PS_MVC_35;";
             connectionString += "Integrated Security=True;";
             this.connection = new SqlConnection(connectionString);
         }

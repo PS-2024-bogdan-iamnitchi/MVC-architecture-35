@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 
-namespace MVVM_architecture_35.Model.Repository
+namespace MVC_architecture_35.Model.Repository
 {
     public class PlayerRepository
     {

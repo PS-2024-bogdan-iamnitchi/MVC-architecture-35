@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MVVM_architecture_35.Model
+namespace MVC_architecture_35.Model
 {
     public class Player
     {
@@ -115,6 +115,11 @@ namespace MVVM_architecture_35.Model
                 return false;
             Player p = (Player)obj;
             return this.playerID == p.playerID;
+        }
+
+        public override int GetHashCode()
+        {
+            return playerID.GetHashCode();
         }
     }
 }

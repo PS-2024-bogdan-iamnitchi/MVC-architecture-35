@@ -1,20 +1,79 @@
 ﻿using MVC_architecture_35.Language;
+using MVC_architecture_35.View;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace MVVM_architecture_35.View
+namespace MVC_architecture_35.View
 {
-    public partial class LoginGUI : Form
+    public partial class LoginGUI : Form, IGUI
     {
-        public LoginGUI()
+        public LoginGUI(int index)
         {
             InitializeComponent();
             InitializeComponentLang();
+
+            this.langComboBox.SelectedIndex = index;
         }
 
+        // Get / Set ---------------------------------------------------------------------------------------------------------------------------
+        public void SetMessage(string title, string message)
+        {
+            MessageBox.Show(message, title);
+        }
+
+        public void HideForm()
+        {
+            this.Hide();
+        }
+
+        public ComboBox GetLangComboBox()
+        {
+            return this.langComboBox;
+        }
+
+        public TextBox GetEmailTextBox()
+        {
+            return this.emailTextBox;
+        }
+
+        public TextBox GetPasswordTextBox()
+        {
+            return this.passwordTextBox;
+        }
+
+        public Button GetLoginButton()
+        {
+            return this.loginButton;
+        }
+
+        public Button GetClearButton()
+        {
+            return this.clearButton;
+        }
+
+        public LinkLabel GetSignUpLinkLabel()
+        {
+            return this.signUpLinkLabel;
+        }
+
+        public LinkLabel GetGameLinkLabel()
+        {
+            return this.playGameLinkedLabel;
+        }
+
+        // Events ------------------------------------------------------------------------------------------------------------------------------
+        private void langComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.langComboBox.SelectedIndex == 0)
+                LangHelper.ChangeLanguage("en");
+            else if (this.langComboBox.SelectedIndex == 1)
+                LangHelper.ChangeLanguage("fr");
+            else if (this.langComboBox.SelectedIndex == 2)
+                LangHelper.ChangeLanguage("de");
+            InitializeComponentLang();
+        }
+
+        // GUI only ----------------------------------------------------------------------------------------------------------------------------
         private void InitializeComponentLang()
         {
             this.loginTitle.Text = LangHelper.GetString("loginTitle");
@@ -28,16 +87,10 @@ namespace MVVM_architecture_35.View
             this.playGameLinkedLabel.Text = LangHelper.GetString("playGameTxt");
         }
 
-        private void langComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            if(this.langComboBox.SelectedIndex == 0) 
-                LangHelper.ChangeLanguage("en");
-            else if (this.langComboBox.SelectedIndex == 1)
-                LangHelper.ChangeLanguage("fr");
-            else if(this.langComboBox.SelectedIndex == 2)
-                LangHelper.ChangeLanguage("de");
-            Debug.WriteLine(this.langComboBox.SelectedIndex);
-            InitializeComponentLang();
+            base.OnFormClosing(e);
+            Environment.Exit(0);
         }
     }
 }

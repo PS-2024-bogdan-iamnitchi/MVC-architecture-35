@@ -1,4 +1,4 @@
-﻿namespace MVVM_architecture_35.View
+﻿namespace MVC_architecture_35.View
 {
     partial class HomeGUI
     {
@@ -45,7 +45,7 @@
             // 
             // homeTitle
             // 
-            this.homeTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.homeTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.homeTitle.AutoSize = true;
             this.homeTitle.Font = new System.Drawing.Font("Arial Rounded MT Bold", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
