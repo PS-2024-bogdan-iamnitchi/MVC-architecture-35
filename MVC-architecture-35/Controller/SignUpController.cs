@@ -1,4 +1,5 @@
-﻿using MVC_architecture_35.Model;
+﻿using MVC_architecture_35.Language;
+using MVC_architecture_35.Model;
 using MVC_architecture_35.Model.Repository;
 using MVC_architecture_35.View;
 using System;
@@ -20,6 +21,8 @@ namespace MVC_architecture_35.Controller
             this.signUpGUI = new SignUpGUI(index);
             this.playerRepository = new PlayerRepository();
 
+            this.initializeComponentLang();
+
             //handle events
             this.eventsManagement();
         }
@@ -32,6 +35,8 @@ namespace MVC_architecture_35.Controller
 
         private void eventsManagement()
         {
+            this.signUpGUI.GetLangComboBox().SelectedIndexChanged += new EventHandler(selectIndexCallback);
+
             this.signUpGUI.GetSignUpButton().Click += new EventHandler(signUpPlayer);
             this.signUpGUI.GetClearButton().Click += new EventHandler(clearFields);
             this.signUpGUI.GetLoginLinkLabel().Click += new EventHandler(clearFields);
@@ -79,6 +84,17 @@ namespace MVC_architecture_35.Controller
             this.signUpGUI.HideForm();
         }
 
+        private void selectIndexCallback(object sender, EventArgs e)
+        {
+            if (this.signUpGUI.GetLangComboBox().SelectedIndex == 0)
+                LangHelper.ChangeLanguage("en");
+            else if (this.signUpGUI.GetLangComboBox().SelectedIndex == 1)
+                LangHelper.ChangeLanguage("fr");
+            else if (this.signUpGUI.GetLangComboBox().SelectedIndex == 2)
+                LangHelper.ChangeLanguage("de");
+            initializeComponentLang();
+        }
+
         //Controller specific methods -------------------------------------------------------------------------------------------------------------
         private Player validInformation()
         {
@@ -108,6 +124,19 @@ namespace MVC_architecture_35.Controller
             }
             //string encryptPassword = BCrypt.Net.BCrypt.HashPassword(password);
             return new Player(fullName, email, age, password);
+        }
+
+        private void initializeComponentLang()
+        {
+            this.signUpGUI.GetSignUpTitleLabel().Text = LangHelper.GetString("signUpTitle");
+            this.signUpGUI.GetFullNameLabel().Text = LangHelper.GetString("fullNameLabel");
+            this.signUpGUI.GetEmailLabel().Text = LangHelper.GetString("emailLabel");
+            this.signUpGUI.GetAgeLabel().Text = LangHelper.GetString("ageLabel");
+            this.signUpGUI.GetPasswordLabel().Text = LangHelper.GetString("passwordLabel");
+            this.signUpGUI.GetClearButton().Text = LangHelper.GetString("clearBtn");
+            this.signUpGUI.GetSignUpButton().Text = LangHelper.GetString("signUpBtn");
+            this.signUpGUI.GetSignUpLabel().Text = LangHelper.GetString("signUpText");
+            this.signUpGUI.GetLoginLinkLabel().Text = LangHelper.GetString("loginTxt");
         }
     }
 }

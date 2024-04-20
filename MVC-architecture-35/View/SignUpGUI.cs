@@ -11,7 +11,6 @@ namespace MVC_architecture_35.View
         public SignUpGUI(int index)
         {
             InitializeComponent();
-            InitializeComponentLang();
             
             this.langComboBox.SelectedIndex = index;
         }
@@ -67,30 +66,35 @@ namespace MVC_architecture_35.View
             return this.loginLinkedLabel;
         }
 
-        // Events ------------------------------------------------------------------------------------------------------------------------------
-        private void langComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        //Labels
+        public Label GetSignUpTitleLabel()
         {
-            if (this.langComboBox.SelectedIndex == 0)
-                LangHelper.ChangeLanguage("en");
-            else if (this.langComboBox.SelectedIndex == 1)
-                LangHelper.ChangeLanguage("fr");
-            else if (this.langComboBox.SelectedIndex == 2)
-                LangHelper.ChangeLanguage("de");
-            InitializeComponentLang();
+            return this.signUpTitle;
         }
 
-        // GUI only ----------------------------------------------------------------------------------------------------------------------------
-        private void InitializeComponentLang()
+        public Label GetFullNameLabel()
         {
-            this.signUpTitle.Text = LangHelper.GetString("signUpTitle");
-            this.fullNameLabel.Text = LangHelper.GetString("fullNameLabel");
-            this.emailLabel.Text = LangHelper.GetString("emailLabel");
-            this.ageLabel.Text = LangHelper.GetString("ageLabel");
-            this.passwordLabel.Text = LangHelper.GetString("passwordLabel");
-            this.clearButton.Text = LangHelper.GetString("clearBtn");
-            this.signUpButton.Text = LangHelper.GetString("signUpBtn");
-            this.signUpText.Text = LangHelper.GetString("signUpText");
-            this.loginLinkedLabel.Text = LangHelper.GetString("loginTxt");
+            return this.fullNameLabel;
+        }
+
+        public Label GetEmailLabel()
+        {
+            return this.emailLabel;
+        }
+
+        public Label GetAgeLabel()
+        {
+            return this.ageLabel;
+        }
+
+        public Label GetPasswordLabel()
+        {
+            return this.passwordLabel;
+        }
+
+        public Label GetSignUpLabel()
+        {
+            return this.signUpText;
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)

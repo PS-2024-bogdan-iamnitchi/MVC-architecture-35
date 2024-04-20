@@ -11,7 +11,6 @@ namespace MVC_architecture_35.View
         public HomeGUI(int index)
         {
             InitializeComponent();
-            InitializeComponentLang();
 
             this.langComboBox.SelectedIndex = index;
         }
@@ -47,31 +46,40 @@ namespace MVC_architecture_35.View
             return this.signOutButton;
         }
 
-        // Events ------------------------------------------------------------------------------------------------------------------------------
-        private void langComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        //Labels
+        public Label GetHomeTitleLabel()
         {
-            if (this.langComboBox.SelectedIndex == 0)
-                LangHelper.ChangeLanguage("en");
-            else if (this.langComboBox.SelectedIndex == 1)
-                LangHelper.ChangeLanguage("fr");
-            else if (this.langComboBox.SelectedIndex == 2)
-                LangHelper.ChangeLanguage("de");
-            InitializeComponentLang();
+            return this.homeTitle;
         }
 
-        // GUI only ----------------------------------------------------------------------------------------------------------------------------
-        private void InitializeComponentLang()
+        public Label GetHomeText11Label()
         {
-            this.homeTitle.Text = LangHelper.GetString("homeTitle");
-            this.homeText11.Text = LangHelper.GetString("homeText11");
-            this.homeText12.Text = LangHelper.GetString("homeText12");
-            this.homeText21.Text = LangHelper.GetString("homeText21");
-            this.homeText22.Text = LangHelper.GetString("homeText22");
-            this.homeText31.Text = LangHelper.GetString("homeText31");
-            this.homeText32.Text = LangHelper.GetString("hometext32");
-            this.signOutButton.Text = LangHelper.GetString("signOutBtn");
-            this.adminButton.Text = LangHelper.GetString("adminBtn");
-            this.playGameButton.Text = LangHelper.GetString("playGameBtn");
+            return this.homeText11;
+        }
+
+        public Label GetHomeText12Label()
+        {
+            return this.homeText12;
+        }
+
+        public Label GetHomeText21Label()
+        {
+            return this.homeText21;
+        }
+
+        public Label GetHomeText22Label()
+        {
+            return this.homeText22;
+        }
+
+        public Label GetHomeText31Label()
+        {
+            return this.homeText31;
+        }
+
+        public Label GetHomeText32Label()
+        {
+            return this.homeText32;
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)

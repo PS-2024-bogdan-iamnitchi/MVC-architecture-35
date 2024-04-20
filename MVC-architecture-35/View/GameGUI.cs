@@ -12,7 +12,6 @@ namespace MVC_architecture_35.View
         public GameGUI(int index)
         {
             InitializeComponent();
-            InitializeComponentLang();
 
             this.langComboBox.SelectedIndex = index;
         }
@@ -108,16 +107,29 @@ namespace MVC_architecture_35.View
             return this.timerCPU;
         }
 
-        // Events ------------------------------------------------------------------------------------------------------------------------------
-        private void langComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        public Label GetGameTitleLabel()
         {
-            if (this.langComboBox.SelectedIndex == 0)
-                LangHelper.ChangeLanguage("en");
-            else if (this.langComboBox.SelectedIndex == 1)
-                LangHelper.ChangeLanguage("fr");
-            else if (this.langComboBox.SelectedIndex == 2)
-                LangHelper.ChangeLanguage("de");
-            InitializeComponentLang();
+            return this.gameTitle;
+        }
+
+        public Label GetLoggedInPlayerScoreLabel()
+        {
+            return this.loggedInPlayerScoreLabel;
+        }
+
+        public Label GetLevelLabel()
+        {
+            return this.levelLabel;
+        }
+
+        public Label GetOpoScoreLabel()
+        {
+            return this.opoScoreLabel;
+        }
+
+        public Label GetPlyScoreLabel()
+        {
+            return this.plyScoreLabel;
         }
 
         // GUI only ----------------------------------------------------------------------------------------------------------------------------
@@ -191,17 +203,6 @@ namespace MVC_architecture_35.View
 
             button.Dock = DockStyle.Fill;
             return button;
-        }
-
-        private void InitializeComponentLang()
-        {
-            this.gameTitle.Text = LangHelper.GetString("gameTitle");
-            this.loggedInPlayerScoreLabel.Text = LangHelper.GetString("savedScoreLabel");
-            this.levelLabel.Text = LangHelper.GetString("levelLabel");
-            this.oponentLabel.Text = LangHelper.GetString("opoMovesLabel");
-            this.playerLabel.Text = LangHelper.GetString("plyMovesLabel");
-            this.opoScoreLabel.Text = LangHelper.GetString("opoScoreLabel");
-            this.plyScoreLabel.Text = LangHelper.GetString("plyScoreLabel");
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)

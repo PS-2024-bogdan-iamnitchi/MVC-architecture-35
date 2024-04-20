@@ -10,7 +10,6 @@ namespace MVC_architecture_35.View
         public LoginGUI(int index)
         {
             InitializeComponent();
-            InitializeComponentLang();
 
             this.langComboBox.SelectedIndex = index;
         }
@@ -61,30 +60,30 @@ namespace MVC_architecture_35.View
             return this.playGameLinkedLabel;
         }
 
-        // Events ------------------------------------------------------------------------------------------------------------------------------
-        private void langComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        //Labels
+        public Label GetLoginTitleLabel()
         {
-            if (this.langComboBox.SelectedIndex == 0)
-                LangHelper.ChangeLanguage("en");
-            else if (this.langComboBox.SelectedIndex == 1)
-                LangHelper.ChangeLanguage("fr");
-            else if (this.langComboBox.SelectedIndex == 2)
-                LangHelper.ChangeLanguage("de");
-            InitializeComponentLang();
+            return this.loginTitle;
         }
 
-        // GUI only ----------------------------------------------------------------------------------------------------------------------------
-        private void InitializeComponentLang()
+        public Label GetEmailLabel()
         {
-            this.loginTitle.Text = LangHelper.GetString("loginTitle");
-            this.emailLabel.Text = LangHelper.GetString("emailLabel");
-            this.passwordLabel.Text = LangHelper.GetString("passwordLabel");
-            this.clearButton.Text = LangHelper.GetString("clearBtn");
-            this.loginButton.Text = LangHelper.GetString("loginBtn");
-            this.loginText1.Text = LangHelper.GetString("loginText1");
-            this.signUpLinkLabel.Text = LangHelper.GetString("createAccountTxt");
-            this.loginText2.Text = LangHelper.GetString("loginText2");
-            this.playGameLinkedLabel.Text = LangHelper.GetString("playGameTxt");
+            return this.emailLabel;
+        }
+
+        public Label GetPasswordLabel()
+        {
+            return this.passwordLabel;
+        }
+
+        public Label GetLoginText1TextBox()
+        {
+            return this.loginText1;
+        }
+
+        public Label GetLoginText2TextBox()
+        {
+            return this.loginText2;
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)

@@ -1,4 +1,5 @@
-﻿using MVC_architecture_35.Model;
+﻿using MVC_architecture_35.Language;
+using MVC_architecture_35.Model;
 using MVC_architecture_35.Model.Repository;
 using MVC_architecture_35.View;
 using System;
@@ -21,6 +22,8 @@ namespace MVC_architecture_35.Controller
             this.playerRepository = new PlayerRepository();
             this.loggedInPlayer = getLoggedInPlayer(loggedInPlayerEmail);
 
+            this.initializeComponentLang();
+
             //handle events
             this.eventsManagement();
         }
@@ -33,6 +36,8 @@ namespace MVC_architecture_35.Controller
 
         private void eventsManagement()
         {
+            this.homeGUI.GetLangComboBox().SelectedIndexChanged += new EventHandler(selectIndexCallback);
+
             this.homeGUI.GetPlayGameButton().Click += new EventHandler(toGameView);
             this.homeGUI.GetAdminButton().Click += new EventHandler(toAdminView);
             this.homeGUI.GetSignOutButton().Click += new EventHandler(signOut);
@@ -65,6 +70,17 @@ namespace MVC_architecture_35.Controller
             this.homeGUI.HideForm();
         }
 
+        private void selectIndexCallback(object sender, EventArgs e)
+        {
+            if (this.homeGUI.GetLangComboBox().SelectedIndex == 0)
+                LangHelper.ChangeLanguage("en");
+            else if (this.homeGUI.GetLangComboBox().SelectedIndex == 1)
+                LangHelper.ChangeLanguage("fr");
+            else if (this.homeGUI.GetLangComboBox().SelectedIndex == 2)
+                LangHelper.ChangeLanguage("de");
+            initializeComponentLang();
+        }
+
         //Controller specific methods -------------------------------------------------------------------------------------------------------------
         private Player getLoggedInPlayer(string email)
         {
@@ -82,6 +98,20 @@ namespace MVC_architecture_35.Controller
                 this.homeGUI.SetMessage("Exeption - GetLoggedInPlayer", ex.ToString());
             }
             return player;
+        }
+
+        private void initializeComponentLang()
+        {
+            this.homeGUI.GetHomeTitleLabel().Text = LangHelper.GetString("homeTitle");
+            this.homeGUI.GetHomeText11Label().Text = LangHelper.GetString("homeText11");
+            this.homeGUI.GetHomeText12Label().Text = LangHelper.GetString("homeText12");
+            this.homeGUI.GetHomeText21Label().Text = LangHelper.GetString("homeText21");
+            this.homeGUI.GetHomeText22Label().Text = LangHelper.GetString("homeText22");
+            this.homeGUI.GetHomeText31Label().Text = LangHelper.GetString("homeText31");
+            this.homeGUI.GetHomeText32Label().Text = LangHelper.GetString("hometext32");
+            this.homeGUI.GetSignOutButton().Text = LangHelper.GetString("signOutBtn");
+            this.homeGUI.GetAdminButton().Text = LangHelper.GetString("adminBtn");
+            this.homeGUI.GetPlayGameButton().Text = LangHelper.GetString("playGameBtn");
         }
     }
 }

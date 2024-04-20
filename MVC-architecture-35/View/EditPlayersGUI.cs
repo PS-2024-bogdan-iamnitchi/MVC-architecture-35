@@ -11,7 +11,6 @@ namespace MVC_architecture_35.View
         public EditPlayersGUI(int index)
         {
             InitializeComponent();
-            InitializeComponentLang();
 
             this.langComboBox.SelectedIndex = index;
         }
@@ -102,31 +101,39 @@ namespace MVC_architecture_35.View
             return this.playersDataGridView;
         }
 
-        // Events ------------------------------------------------------------------------------------------------------------------------------
-        private void langComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        public Label GetEditPlayersTitleLabel()
         {
-            if (this.langComboBox.SelectedIndex == 0)
-                LangHelper.ChangeLanguage("en");
-            else if (this.langComboBox.SelectedIndex == 1)
-                LangHelper.ChangeLanguage("fr");
-            else if (this.langComboBox.SelectedIndex == 2)
-                LangHelper.ChangeLanguage("de");
-            InitializeComponentLang();
+            return this.editPlayersTitle;
         }
 
-        // GUI only ----------------------------------------------------------------------------------------------------------------------------
-
-        private void InitializeComponentLang()
+        public Label GetPlayerIDLabel()
         {
-            this.editPlayersTitle.Text = LangHelper.GetString("editPlayerTitle");
-            this.playerIDLabel.Text = LangHelper.GetString("playerdIDLabel");
-            this.fullNameLabel.Text = LangHelper.GetString("fullNameLabel");
-            this.ageLabel.Text = LangHelper.GetString("ageLabel");
-            this.emailLabel.Text = LangHelper.GetString("emailLabel");
-            this.scoreLabel.Text = LangHelper.GetString("scoreLabel");
-            this.passwordLabel.Text = LangHelper.GetString("passwordLabel");
-            this.backButton.Text = LangHelper.GetString("backBtn");
-            this.searchButton.Text = LangHelper.GetString("searchBtn");
+            return this.playerIDLabel;
+        }
+
+        public Label GetFullNameLabel()
+        {
+            return this.fullNameLabel;
+        }
+
+        public Label GetAgeLabel()
+        {
+            return this.ageLabel;
+        }
+
+        public Label GetEmailLabel()
+        {
+            return this.emailLabel;
+        }
+
+        public Label GetScoreLabel()
+        {
+            return this.scoreLabel;
+        }
+
+        public Label GetPasswordLabel()
+        {
+            return this.passwordLabel;
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)

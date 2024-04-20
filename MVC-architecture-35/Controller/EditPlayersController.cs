@@ -1,4 +1,5 @@
-﻿using MVC_architecture_35.Model;
+﻿using MVC_architecture_35.Language;
+using MVC_architecture_35.Model;
 using MVC_architecture_35.Model.Repository;
 using MVC_architecture_35.View;
 using System;
@@ -23,6 +24,8 @@ namespace MVC_architecture_35.Controller
             this.playerRepository = new PlayerRepository();
             this.loggedInPlayer = getLoggedInPlayer(loggedInPlayerEmail);
 
+            this.initializeComponentLang();
+
             //handle events
             this.eventsManagement();
         }
@@ -35,6 +38,7 @@ namespace MVC_architecture_35.Controller
 
         private void eventsManagement()
         {
+            this.editPlayersGUI.GetLangComboBox().SelectedIndexChanged += new EventHandler(selectIndexCallback);
             this.editPlayersGUI.GetPlayersTable().RowStateChanged += rowStateChanged;
 
             this.editPlayersGUI.GetLoadButton().Click += new EventHandler(loadPlayers);
@@ -48,6 +52,17 @@ namespace MVC_architecture_35.Controller
         }
 
         //Events --------------------------------------------------------------------------------------------------------------------------
+        private void selectIndexCallback(object sender, EventArgs e)
+        {
+            if (this.editPlayersGUI.GetLangComboBox().SelectedIndex == 0)
+                LangHelper.ChangeLanguage("en");
+            else if (this.editPlayersGUI.GetLangComboBox().SelectedIndex == 1)
+                LangHelper.ChangeLanguage("fr");
+            else if (this.editPlayersGUI.GetLangComboBox().SelectedIndex == 2)
+                LangHelper.ChangeLanguage("de");
+            initializeComponentLang();
+        }
+
         private void rowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
         {
             try
@@ -307,6 +322,19 @@ namespace MVC_architecture_35.Controller
                 this.editPlayersGUI.SetMessage("Exeption - GetLoggedInPlayer", ex.ToString());
             }
             return player;
+        }
+
+        private void initializeComponentLang()
+        {
+            this.editPlayersGUI.GetEditPlayersTitleLabel().Text = LangHelper.GetString("editPlayerTitle");
+            this.editPlayersGUI.GetPlayerIDLabel().Text = LangHelper.GetString("playerdIDLabel");
+            this.editPlayersGUI.GetFullNameLabel().Text = LangHelper.GetString("fullNameLabel");
+            this.editPlayersGUI.GetAgeLabel().Text = LangHelper.GetString("ageLabel");
+            this.editPlayersGUI.GetEmailLabel().Text = LangHelper.GetString("emailLabel");
+            this.editPlayersGUI.GetScoreLabel().Text = LangHelper.GetString("scoreLabel");
+            this.editPlayersGUI.GetPasswordLabel().Text = LangHelper.GetString("passwordLabel");
+            this.editPlayersGUI.GetBackButton().Text = LangHelper.GetString("backBtn");
+            this.editPlayersGUI.GetSearchButton().Text = LangHelper.GetString("searchBtn");
         }
     }
 }

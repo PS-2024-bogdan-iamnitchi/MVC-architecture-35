@@ -204,7 +204,7 @@
             this.langComboBox.Size = new System.Drawing.Size(174, 32);
             this.langComboBox.TabIndex = 27;
             this.langComboBox.Text = "Langauge";
-            this.langComboBox.SelectedIndexChanged += new System.EventHandler(this.langComboBox_SelectedIndexChanged);
+            //this.langComboBox.SelectedIndexChanged += new System.EventHandler(this.langComboBox_SelectedIndexChanged);
             // 
             // HomeGUI
             // 

@@ -1,9 +1,11 @@
-﻿using MVC_architecture_35.Model;
+﻿using MVC_architecture_35.Language;
+using MVC_architecture_35.Model;
 using MVC_architecture_35.Model.Repository;
 using MVC_architecture_35.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -24,6 +26,7 @@ namespace MVC_architecture_35.Controller
             this.playerRepository = new PlayerRepository();
             this.loggedInPlayer = getLoggedInPlayer(loggedInPlayerEmail);
 
+            this.initializeComponentLang();
             this.gameModel = new GameModel();
             this.resetGame();
 
@@ -39,6 +42,8 @@ namespace MVC_architecture_35.Controller
 
         private void eventsManagement()
         {
+            this.gameGUI.GetLangComboBox().SelectedIndexChanged += new EventHandler(selectIndexCallback);
+
             this.gameGUI.GetPlayPauseButton().Click += new EventHandler(playPause);
             this.gameGUI.GetRestartButton().Click += new EventHandler(restart);
             this.gameGUI.GetExitButton().Click += new EventHandler(exit);
@@ -123,6 +128,17 @@ namespace MVC_architecture_35.Controller
             {
                 this.checkGameEnded(this.gameModel.Turn);
             }
+        }
+
+        private void selectIndexCallback(object sender, EventArgs e)
+        {
+            if (this.gameGUI.GetLangComboBox().SelectedIndex == 0)
+                LangHelper.ChangeLanguage("en");
+            else if (this.gameGUI.GetLangComboBox().SelectedIndex == 1)
+                LangHelper.ChangeLanguage("fr");
+            else if (this.gameGUI.GetLangComboBox().SelectedIndex == 2)
+                LangHelper.ChangeLanguage("de");
+            initializeComponentLang();
         }
 
         //Controller specific methods -----------------------------------------------------------------------------------------------------------
@@ -531,6 +547,17 @@ namespace MVC_architecture_35.Controller
             {
                 this.gameGUI.SetMessage("Exception - Update Score", exception.ToString());
             }
+        }
+
+        private void initializeComponentLang()
+        {
+            this.gameGUI.GetGameTitleLabel().Text = LangHelper.GetString("gameTitle");
+            this.gameGUI.GetScoreLabel().Text = LangHelper.GetString("savedScoreLabel");
+            this.gameGUI.GetLevelLabel().Text = LangHelper.GetString("levelLabel");
+            this.gameGUI.GetOponentLabel().Text = LangHelper.GetString("opoMovesLabel");
+            this.gameGUI.GetPlayerLabel().Text = LangHelper.GetString("plyMovesLabel");
+            this.gameGUI.GetOpoScoreLabel().Text = LangHelper.GetString("opoScoreLabel");
+            this.gameGUI.GetPlyScoreLabel().Text = LangHelper.GetString("plyScoreLabel");
         }
     }
 }
