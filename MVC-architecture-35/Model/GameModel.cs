@@ -18,7 +18,7 @@ namespace MVC_architecture_35.Model
         Lose = 3
     }
 
-    public class GameModel
+    public class GameModel : Subject
     {
         private Arrow[,] board;
         private int level;
@@ -31,10 +31,11 @@ namespace MVC_architecture_35.Model
         {
             this.boardSize = 4;
             this.level = 1;
-            this.board = this.GetNewBoard();
+            this.board = GetNewBoard();
             this.gameState = GameState.Init;
             this.gameOutcome = GameOutcome.None;
             this.turn = 0;
+            this.obsList = new List<Observable>();
         }
 
         public GameModel(GameModel gameModel)
@@ -45,16 +46,7 @@ namespace MVC_architecture_35.Model
             this.gameState = GameState.Init;
             this.gameOutcome = GameOutcome.None;
             this.turn = 0;
-        }
-
-        public GameModel(int boardSize, int level)
-        {
-            this.boardSize = boardSize;
-            this.level = level;
-            this.board = this.GetNewBoard();
-            this.gameState = GameState.Init;
-            this.gameOutcome = GameOutcome.None;
-            this.turn = 0;
+            this.obsList = new List<Observable>();
         }
 
         public Arrow[,] Board
@@ -70,6 +62,7 @@ namespace MVC_architecture_35.Model
             { 
                 this.boardSize = value;
                 this.board = GetNewBoard();
+                this.Notify();
             }
         }
 

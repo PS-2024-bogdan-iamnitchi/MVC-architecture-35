@@ -41,6 +41,7 @@ namespace MVC_architecture_35.Controller
             this.homeGUI.GetPlayGameButton().Click += new EventHandler(toGameView);
             this.homeGUI.GetAdminButton().Click += new EventHandler(toAdminView);
             this.homeGUI.GetSignOutButton().Click += new EventHandler(signOut);
+            this.homeGUI.GetStatisctsButton().Click += new EventHandler(toStatisticsView);
         }
 
         //Events ---------------------------------------------------------------------------------------------------------------------------------
@@ -60,13 +61,20 @@ namespace MVC_architecture_35.Controller
                 this.homeGUI.HideForm();
             }
             else
-                this.homeGUI.SetMessage("Not Allowed!", "You don't have rights to access this page!");
+                this.homeGUI.SetMessage(LangHelper.GetString("notAllowed"), LangHelper.GetString("notAllowedMessage"));
         }
 
         private void signOut(object sender, EventArgs e)
         {
             LoginController loginController = new LoginController(this.homeGUI.GetLangComboBox().SelectedIndex);
             loginController.GetView().Show();
+            this.homeGUI.HideForm();
+        }
+
+        private void toStatisticsView(object sender, EventArgs e)
+        {
+            StatisticsController statisticsController = new StatisticsController(this.loggedInPlayer.Email, this.homeGUI.GetLangComboBox().SelectedIndex);
+            statisticsController.GetView().Show();
             this.homeGUI.HideForm();
         }
 
@@ -95,7 +103,7 @@ namespace MVC_architecture_35.Controller
             }
             catch (Exception ex)
             {
-                this.homeGUI.SetMessage("Exeption - GetLoggedInPlayer", ex.ToString());
+                this.homeGUI.SetMessage(LangHelper.GetString("exception"), ex.ToString());
             }
             return player;
         }

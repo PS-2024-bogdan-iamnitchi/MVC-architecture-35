@@ -39,7 +39,7 @@ namespace MVC_architecture_35.Controller
 
             this.signUpGUI.GetSignUpButton().Click += new EventHandler(signUpPlayer);
             this.signUpGUI.GetClearButton().Click += new EventHandler(clearFields);
-            this.signUpGUI.GetLoginLinkLabel().Click += new EventHandler(clearFields);
+            this.signUpGUI.GetLoginLinkLabel().Click += new EventHandler(toLoginView);
         }
 
         //Events --------------------------------------------------------------------------------------------------------------------------
@@ -53,19 +53,19 @@ namespace MVC_architecture_35.Controller
                     bool result = this.playerRepository.SignUpPlayer(player);
                     if (result)
                     {
-                        this.signUpGUI.SetMessage("Success!", "New account was created successfully!");
+                        this.signUpGUI.SetMessage(LangHelper.GetString("success"), LangHelper.GetString("signUpSuccess"));
                         LoginController loginController = new LoginController(this.signUpGUI.GetLangComboBox().SelectedIndex);
                         loginController.GetView().Show();
                         this.signUpGUI.HideForm();
                     }
                     else
-                        this.signUpGUI.SetMessage("Failure!", "Adding was ended with failure!");
+                        this.signUpGUI.SetMessage(LangHelper.GetString("failure"), LangHelper.GetString("signUpFailure"));
 
                 }
             }
             catch (Exception ex)
             {
-                this.signUpGUI.SetMessage("Exeption - SignUp", ex.ToString());
+                this.signUpGUI.SetMessage(LangHelper.GetString("exception"), ex.ToString());
             }
         }
 
@@ -101,25 +101,25 @@ namespace MVC_architecture_35.Controller
             string fullName = this.signUpGUI.GetFullNameTextBox().Text;
             if (fullName == null || fullName.Length == 0)
             {
-                this.signUpGUI.SetMessage("Incomplete information!", "Player name is empty!");
+                this.signUpGUI.SetMessage(LangHelper.GetString("incompleteInfo"), LangHelper.GetString("validinfoName"));
                 return null;
             }
             string email = this.signUpGUI.GetEmailTextBox().Text;
             if (email == null || email.Length == 0)
             {
-                this.signUpGUI.SetMessage("Incomplete information!", "Email field is empty!");
+                this.signUpGUI.SetMessage(LangHelper.GetString("incompleteInfo"), LangHelper.GetString("validinfoEmail"));
                 return null;
             }
             uint age = (uint)this.signUpGUI.GetAgeNUD().Value;
             if (age <= 10)
             {
-                this.signUpGUI.SetMessage("Incomplete information!", "Player age must be greater or equal with 10!");
+                this.signUpGUI.SetMessage(LangHelper.GetString("incompleteInfo"), LangHelper.GetString("validinfoAge"));
                 return null;
             }
             string password = this.signUpGUI.GetPasswordTextBox().Text;
             if (password == null || password.Length == 0)
             {
-                this.signUpGUI.SetMessage("Incomplete information!", "Password field is empty!");
+                this.signUpGUI.SetMessage(LangHelper.GetString("incompleteInfo"), LangHelper.GetString("validinfoPassword"));
                 return null;
             }
             //string encryptPassword = BCrypt.Net.BCrypt.HashPassword(password);

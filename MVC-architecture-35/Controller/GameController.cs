@@ -18,20 +18,21 @@ namespace MVC_architecture_35.Controller
         private GameModel gameModel;
         private PlayerRepository playerRepository;
         private Player loggedInPlayer;
-        private Button[,] buttonsGrid;
 
         public GameController(string loggedInPlayerEmail, int index)
         {
             this.gameGUI = new GameGUI(index);
+            this.gameModel = new GameModel();
             this.playerRepository = new PlayerRepository();
             this.loggedInPlayer = getLoggedInPlayer(loggedInPlayerEmail);
 
-            this.initializeComponentLang();
-            this.gameModel = new GameModel();
-            this.resetGame();
+            //add an observer
+            this.gameModel.Add(this.gameGUI);
 
             //handle events
+            this.initializeComponentLang();
             this.eventsManagement();
+            this.resetFiledsGUI();
         }
 
         // View and Events ----------------------------------------------------------------------------------------------------------------------
@@ -64,7 +65,7 @@ namespace MVC_architecture_35.Controller
             {
                 this.gameModel.GameState = GameState.Started;
                 this.gameGUI.GetPlayPauseButton().BackgroundImage = Properties.Resources.pause;
-                this.gameGUI.SetMessage("PLAY!", "Game started!");
+                this.gameGUI.SetMessage(LangHelper.GetString("play"), LangHelper.GetString("playText"));
 
                 this.gameGUI.GetPlayerLabel().ForeColor = System.Drawing.Color.FromArgb(40, 196, 36); //green
                 this.gameGUI.GetOponentLabel().ForeColor = System.Drawing.Color.FromArgb(210, 210, 210);
@@ -73,7 +74,7 @@ namespace MVC_architecture_35.Controller
             {
                 this.gameModel.GameState = GameState.Paused;
                 this.gameGUI.GetPlayPauseButton().BackgroundImage = Properties.Resources.start;
-                this.gameGUI.SetMessage("PAUSE!", "Game is paused!");
+                this.gameGUI.SetMessage(LangHelper.GetString("pause"), LangHelper.GetString("pauseText"));
             }
         }
 
@@ -96,7 +97,7 @@ namespace MVC_architecture_35.Controller
                 return;
             }
 
-            DialogResult result = this.gameGUI.ChooseOptionMessage("Leave Game", "Do you want to save your results?");
+            DialogResult result = this.gameGUI.ChooseOptionMessage(LangHelper.GetString("pause"), LangHelper.GetString("exitQuestion"));
             switch (result)
             {
                 case DialogResult.Yes:
@@ -142,7 +143,7 @@ namespace MVC_architecture_35.Controller
         }
 
         //Controller specific methods -----------------------------------------------------------------------------------------------------------
-        private void resetGame()
+        private void resetFiledsGUI()
         {
             if (loggedInPlayer == null)
             {
@@ -159,7 +160,11 @@ namespace MVC_architecture_35.Controller
             this.gameGUI.GetPlayPauseButton().BackgroundImage = Properties.Resources.start;
             this.gameGUI.GetPlayerPictureBox().Image = Properties.Resources.ResourceManager.GetObject("green_level" + this.gameModel.Level) as System.Drawing.Image;
             this.gameGUI.GetOponentPictureBox().Image = Properties.Resources.ResourceManager.GetObject("red_level" + this.gameModel.Level) as System.Drawing.Image;
+        }
 
+        private void resetGame()
+        {
+            this.resetFiledsGUI();
             this.gameModel.Board = this.gameModel.GetNewBoard();
             this.gameModel.GameState = GameState.Init;
             this.gameModel.GameOutcome = GameOutcome.None;
@@ -168,8 +173,6 @@ namespace MVC_architecture_35.Controller
         // GUI stuff -------------------------------------------------------------------------------------------------------------------------
         private void createButtonsGrid()
         {
-            int gridSize = this.gameModel.BoardSize;
-            this.buttonsGrid = new Button[gridSize, gridSize];
             this.gameGUI.GetButtonsFlowPanel().Controls.Clear();
             for (int row = 0; row < this.gameModel.BoardSize; row++)
             {
@@ -189,7 +192,7 @@ namespace MVC_architecture_35.Controller
                     {
                         this.gridButtonEvent(sender, e);
                     };
-                    this.buttonsGrid[row, col] = button;
+                    this.gameGUI.GetButtonsGrid()[row, col] = button;
                     this.gameGUI.GetButtonsFlowPanel().Controls.Add(button);
                 }
             }
@@ -207,7 +210,7 @@ namespace MVC_architecture_35.Controller
             {
                 for (int col = 0; col < this.gameModel.BoardSize; col++)
                 {
-                    if (this.buttonsGrid[row, col] == clickedButton)
+                    if (this.gameGUI.GetButtonsGrid()[row, col] == clickedButton)
                     {
                         this.GridButtonPressed(row, col);
                         return;
@@ -220,17 +223,17 @@ namespace MVC_architecture_35.Controller
         {
             if (this.gameModel.GameState != GameState.Started)
             {
-                this.gameGUI.SetMessage("Failure!", "Please start the game first!");
+                this.gameGUI.SetMessage(LangHelper.GetString("failure"), LangHelper.GetString("startGameFirst"));
                 return;
             }
             if (this.gameModel.Turn != 0)
             {
-                this.gameGUI.SetMessage("Failure!", "Not your turn!");
+                this.gameGUI.SetMessage(LangHelper.GetString("failure"), LangHelper.GetString("notYourTurn"));
                 return;
             }
 
             Model.Color color = this.gameModel.Board[row, col].Color = Model.Color.Green;
-            Form messageBox = this.gameGUI.CreateSelectArrowMessageBox("Game notification", "Please select your move:");
+            Form messageBox = this.gameGUI.CreateSelectArrowMessageBox(LangHelper.GetString("gameNotification"), LangHelper.GetString("selectMove"));
             TableLayoutPanel dirButtonsTable = this.gameGUI.CreateChooseDirectionTable();
 
             List<Direction> allowedDir = this.gameModel.Board[row, col].AllowedDirections;
@@ -328,7 +331,7 @@ namespace MVC_architecture_35.Controller
 
                                 bestScore = Math.Max(score, bestScore);
                             }
-                            gameModel.Board[i, j].AllowedDirections = allowedDir;
+                            this.gameModel.Board[i, j].AllowedDirections = allowedDir;
                         }
                     }
                 }
@@ -461,9 +464,9 @@ namespace MVC_architecture_35.Controller
             string dirStr = dir.ToString().ToLower();
             string colorStr = color.ToString().ToLower();
             string imageName = $"{colorStr}_{dirStr}";
-            this.buttonsGrid[row, col].BackgroundImageLayout = ImageLayout.Stretch;
-            this.buttonsGrid[row, col].BackgroundImage = Properties.Resources.ResourceManager.GetObject(imageName) as System.Drawing.Image;
-            this.buttonsGrid[row, col].Enabled = false;
+            this.gameGUI.GetButtonsGrid()[row, col].BackgroundImageLayout = ImageLayout.Stretch;
+            this.gameGUI.GetButtonsGrid()[row, col].BackgroundImage = Properties.Resources.ResourceManager.GetObject(imageName) as System.Drawing.Image;
+            this.gameGUI.GetButtonsGrid()[row, col].Enabled = false;
         }
 
         private void checkGameEnded(int turn)
@@ -472,7 +475,7 @@ namespace MVC_architecture_35.Controller
             if (gameOutcome == GameOutcome.Lose)
             {
                 this.gameGUI.GetCpuTimer().Stop();
-                this.gameGUI.SetMessage("Game Over!", "You have lost the game!");
+                this.gameGUI.SetMessage(LangHelper.GetString("gameOver"), LangHelper.GetString("lostGame"));
 
                 this.gameGUI.GetOponentScoreNUD().Value = this.gameGUI.GetOponentScoreNUD().Value + 1;
                 this.gameGUI.GetPlayerLabel().ForeColor = System.Drawing.Color.FromArgb(210, 210, 210);
@@ -483,7 +486,7 @@ namespace MVC_architecture_35.Controller
             if (gameOutcome == GameOutcome.Draw)
             {
                 this.gameGUI.GetCpuTimer().Stop();
-                this.gameGUI.SetMessage("Draw!", "Not Good not bad");
+                this.gameGUI.SetMessage(LangHelper.GetString("draw"), LangHelper.GetString("drawGame"));
 
                 this.gameGUI.GetPlayerScoreNUD().Value = this.gameGUI.GetPlayerScoreNUD().Value + 1;
                 this.gameGUI.GetOponentScoreNUD().Value = this.gameGUI.GetOponentScoreNUD().Value + 1;
@@ -495,7 +498,7 @@ namespace MVC_architecture_35.Controller
             if (gameOutcome == GameOutcome.Win)
             {
                 this.gameGUI.GetCpuTimer().Stop();
-                this.gameGUI.SetMessage("Congratulation!", "You have win the game!");
+                this.gameGUI.SetMessage(LangHelper.GetString("congratulation"), LangHelper.GetString("winGame"));
 
                 this.gameGUI.GetPlayerScoreNUD().Value = this.gameGUI.GetPlayerScoreNUD().Value + 1;
                 this.gameGUI.GetPlayerLabel().ForeColor = System.Drawing.Color.FromArgb(210, 210, 210);
@@ -520,7 +523,7 @@ namespace MVC_architecture_35.Controller
             }
             catch (Exception ex)
             {
-                this.gameGUI.SetMessage("Exeption - GetLoggedInPlayer", ex.ToString());
+                this.gameGUI.SetMessage(LangHelper.GetString("exception"), ex.ToString());
             }
             return player;
         }
@@ -537,15 +540,15 @@ namespace MVC_architecture_35.Controller
                     bool result = this.playerRepository.UpdatePlayer(selectedID, player);
                     if (result)
                     {
-                        this.gameGUI.SetMessage("Success!", "Saving the score was completed successfully!");
+                        this.gameGUI.SetMessage(LangHelper.GetString("success"), LangHelper.GetString("saveSuccess"));
                     }
                     else
-                        this.gameGUI.SetMessage("Failure!", "Updating was ended with failure!");
+                        this.gameGUI.SetMessage(LangHelper.GetString("failure"), LangHelper.GetString("saveFailure"));
                 }
             }
             catch (Exception exception)
             {
-                this.gameGUI.SetMessage("Exception - Update Score", exception.ToString());
+                this.gameGUI.SetMessage(LangHelper.GetString("exception"), exception.ToString());
             }
         }
 

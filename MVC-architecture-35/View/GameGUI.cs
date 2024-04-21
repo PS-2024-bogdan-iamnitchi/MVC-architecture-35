@@ -1,4 +1,5 @@
 ﻿using MVC_architecture_35.Language;
+using MVC_architecture_35.Model;
 using MVC_architecture_35.View;
 using System;
 using System.Diagnostics;
@@ -7,8 +8,9 @@ using System.Windows.Forms;
 
 namespace MVC_architecture_35.View
 {
-    public partial class GameGUI : Form, IGUI
+    public partial class GameGUI : Form, IGUI, Observable
     {
+        private Button[,] buttonsGrid;
         public GameGUI(int index)
         {
             InitializeComponent();
@@ -132,6 +134,19 @@ namespace MVC_architecture_35.View
             return this.plyScoreLabel;
         }
 
+        public Button[,] GetButtonsGrid()
+        {
+            return this.buttonsGrid;
+        }
+
+        // Update ------------------------------------------------------------------------------------------------------------------------------
+        public void Update(Subject obs)
+        {
+            GameModel gameModel = (GameModel) obs;
+            int gridSize = gameModel.BoardSize;
+            this.buttonsGrid = new Button[gridSize, gridSize];
+        }
+
         // GUI only ----------------------------------------------------------------------------------------------------------------------------
         public Button GetButtonWithStyle(int row, int col, int buttonSize, int spacing)
         {
@@ -210,5 +225,7 @@ namespace MVC_architecture_35.View
             base.OnFormClosing(e);
             Environment.Exit(0);
         }
+
+        
     }
 }

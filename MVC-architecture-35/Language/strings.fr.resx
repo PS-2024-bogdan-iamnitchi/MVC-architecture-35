@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="addFailure" xml:space="preserve">
+    <value>L'ajout s'est terminé par un échec !</value>
+  </data>
+  <data name="addSuccess" xml:space="preserve">
+    <value>L'ajout a été effectué avec succès !</value>
+  </data>
   <data name="adminBtn" xml:space="preserve">
     <value>ADMINISTRATEUR</value>
   </data>
@@ -129,8 +135,29 @@
   <data name="clearBtn" xml:space="preserve">
     <value>CLAIR</value>
   </data>
+  <data name="congratulation" xml:space="preserve">
+    <value>Félicitation !</value>
+  </data>
   <data name="createAccountTxt" xml:space="preserve">
     <value>Créer un Compte</value>
+  </data>
+  <data name="criterion" xml:space="preserve">
+    <value>Critère</value>
+  </data>
+  <data name="deleteFailure" xml:space="preserve">
+    <value>La suppression s'est soldée par un échec !</value>
+  </data>
+  <data name="deleteFailureSelectedPlayer" xml:space="preserve">
+    <value>Aucun joueur n'a été sélectionné pour être supprimé !</value>
+  </data>
+  <data name="deleteSuccess" xml:space="preserve">
+    <value>La suppression a été effectuée avec succès !</value>
+  </data>
+  <data name="draw" xml:space="preserve">
+    <value>Dessiner!</value>
+  </data>
+  <data name="drawGame" xml:space="preserve">
+    <value>Pas bien pas mal</value>
   </data>
   <data name="editPlayerTitle" xml:space="preserve">
     <value>Afficher et modifier les joueurs</value>
@@ -138,14 +165,38 @@
   <data name="emailLabel" xml:space="preserve">
     <value>Courriel:</value>
   </data>
+  <data name="empty" xml:space="preserve">
+    <value>Vide!</value>
+  </data>
   <data name="english" xml:space="preserve">
     <value>Anglais</value>
+  </data>
+  <data name="error" xml:space="preserve">
+    <value>Erreur!</value>
+  </data>
+  <data name="exception" xml:space="preserve">
+    <value>Exception!</value>
+  </data>
+  <data name="exitBtn" xml:space="preserve">
+    <value>SORTIE</value>
+  </data>
+  <data name="exitQuestion" xml:space="preserve">
+    <value>Voulez-vous enregistrer vos résultats?</value>
+  </data>
+  <data name="failure" xml:space="preserve">
+    <value>Échec!</value>
   </data>
   <data name="french" xml:space="preserve">
     <value>Français</value>
   </data>
   <data name="fullNameLabel" xml:space="preserve">
     <value>Nom:</value>
+  </data>
+  <data name="gameNotification" xml:space="preserve">
+    <value>Notification de jeu !</value>
+  </data>
+  <data name="gameOver" xml:space="preserve">
+    <value>Jeu terminé!</value>
   </data>
   <data name="gameTitle" xml:space="preserve">
     <value>Jeu de puzzle de flèche</value>
@@ -174,11 +225,23 @@
   <data name="homeTitle" xml:space="preserve">
     <value>C'est un jeu de Puzzle de Flèche</value>
   </data>
+  <data name="incompleteInfo" xml:space="preserve">
+    <value>Information incomplète!</value>
+  </data>
+  <data name="leaveGame" xml:space="preserve">
+    <value>Quitter jeu!</value>
+  </data>
   <data name="levelLabel" xml:space="preserve">
     <value>Niveau:</value>
   </data>
+  <data name="listPlayerEmpty" xml:space="preserve">
+    <value>La liste des joueurs est vide !</value>
+  </data>
   <data name="loginBtn" xml:space="preserve">
     <value>SE CONNECTER</value>
+  </data>
+  <data name="loginFailure" xml:space="preserve">
+    <value>La connexion s'est terminée avec un échec !</value>
   </data>
   <data name="loginText1" xml:space="preserve">
     <value>Vous n'avez pas de compte ?</value>
@@ -192,6 +255,18 @@
   <data name="loginTxt" xml:space="preserve">
     <value>Se Connecter</value>
   </data>
+  <data name="lostGame" xml:space="preserve">
+    <value>Vous avez perdu la partie !</value>
+  </data>
+  <data name="notAllowed" xml:space="preserve">
+    <value>Interdit!</value>
+  </data>
+  <data name="notAllowedMessage" xml:space="preserve">
+    <value>Vous n'avez pas les droits pour accéder à cette page !</value>
+  </data>
+  <data name="notYourTurn" xml:space="preserve">
+    <value>Ce n'est pas votre tour !</value>
+  </data>
   <data name="opoMovesLabel" xml:space="preserve">
     <value>Adversaire mouvements:</value>
   </data>
@@ -201,8 +276,20 @@
   <data name="passwordLabel" xml:space="preserve">
     <value>Mot de Passe</value>
   </data>
+  <data name="pause" xml:space="preserve">
+    <value>Pause!</value>
+  </data>
+  <data name="pauseText" xml:space="preserve">
+    <value>Le jeu est en pause !</value>
+  </data>
+  <data name="play" xml:space="preserve">
+    <value>Jouer!</value>
+  </data>
   <data name="playerdIDLabel" xml:space="preserve">
     <value>JoueurID</value>
+  </data>
+  <data name="playerListEmpty" xml:space="preserve">
+    <value>La liste des joueurs est vide!</value>
   </data>
   <data name="playGameBtn" xml:space="preserve">
     <value>JOUER AU JEU</value>
@@ -210,14 +297,26 @@
   <data name="playGameTxt" xml:space="preserve">
     <value>Jouer au Jeu</value>
   </data>
+  <data name="playText" xml:space="preserve">
+    <value>Le jeu a commencé !</value>
+  </data>
   <data name="plyMovesLabel" xml:space="preserve">
     <value>Vos mouvements:</value>
   </data>
   <data name="plyScoreLabel" xml:space="preserve">
     <value>Ton score:</value>
   </data>
+  <data name="rowSelError" xml:space="preserve">
+    <value>Erreur lors de la sélection de ligne !</value>
+  </data>
   <data name="savedScoreLabel" xml:space="preserve">
     <value>Score enregistré:</value>
+  </data>
+  <data name="saveFailure" xml:space="preserve">
+    <value>La sauvegarde du score s'est soldée par un échec !</value>
+  </data>
+  <data name="saveSuccess" xml:space="preserve">
+    <value>La sauvegarde de la partition s'est terminée avec succès !</value>
   </data>
   <data name="scoreLabel" xml:space="preserve">
     <value>Score:</value>
@@ -225,16 +324,73 @@
   <data name="searchBtn" xml:space="preserve">
     <value>RECHERCHE</value>
   </data>
+  <data name="searchEmptyInfo" xml:space="preserve">
+    <value>Les informations recherchées sont vides !</value>
+  </data>
+  <data name="searchNoPlayerWithInfo" xml:space="preserve">
+    <value>Il n'y a aucun joueur selon les informations recherchées !</value>
+  </data>
+  <data name="selectMove" xml:space="preserve">
+    <value>Veuillez sélectionner votre déménagement :</value>
+  </data>
   <data name="signOutBtn" xml:space="preserve">
     <value>SE DÉCONNECTER</value>
   </data>
   <data name="signUpBtn" xml:space="preserve">
     <value>S'INSCRIRE</value>
   </data>
+  <data name="signUpFailure" xml:space="preserve">
+    <value>La création d'un nouveau compte s'est soldée par un échec !</value>
+  </data>
+  <data name="signUpSuccess" xml:space="preserve">
+    <value>Le nouveau compte a été créé avec succès !</value>
+  </data>
   <data name="signUpText" xml:space="preserve">
     <value>Vous avez déjà un compte?</value>
   </data>
   <data name="signUpTitle" xml:space="preserve">
     <value>Créer un Compte</value>
+  </data>
+  <data name="startGameFirst" xml:space="preserve">
+    <value>Veuillez d'abord démarrer le jeu !</value>
+  </data>
+  <data name="statistics" xml:space="preserve">
+    <value>Statistiques</value>
+  </data>
+  <data name="statisticsBtn" xml:space="preserve">
+    <value>STATISTIQUES</value>
+  </data>
+  <data name="success" xml:space="preserve">
+    <value>Succès!</value>
+  </data>
+  <data name="updateFailure" xml:space="preserve">
+    <value>La mise à jour s'est terminée avec un échec !</value>
+  </data>
+  <data name="updateFailureSelectedPlayer" xml:space="preserve">
+    <value>Aucun joueur n'a été sélectionné pour être mis à jour !</value>
+  </data>
+  <data name="updateSuccess" xml:space="preserve">
+    <value>La mise à jour s'est terminée avec succès !</value>
+  </data>
+  <data name="validinfoAge" xml:space="preserve">
+    <value>L'âge du joueur doit être supérieur ou égal à 10 !</value>
+  </data>
+  <data name="validinfoEmail" xml:space="preserve">
+    <value>Le champ email est vide !</value>
+  </data>
+  <data name="validinfoID" xml:space="preserve">
+    <value>L'ID du joueur doit être un nombre naturel différent de zéro !</value>
+  </data>
+  <data name="validinfoName" xml:space="preserve">
+    <value>Le nom du joueur est vide !</value>
+  </data>
+  <data name="validinfoPassword" xml:space="preserve">
+    <value>Le champ du mot de passe est vide !</value>
+  </data>
+  <data name="validinfoScore" xml:space="preserve">
+    <value>Le score du joueur doit être supérieur ou égal à 0 !</value>
+  </data>
+  <data name="winGame" xml:space="preserve">
+    <value>Vous avez gagné la partie !</value>
   </data>
 </root>

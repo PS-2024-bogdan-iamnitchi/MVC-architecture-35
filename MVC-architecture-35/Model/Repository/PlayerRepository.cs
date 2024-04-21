@@ -10,12 +10,12 @@ namespace MVC_architecture_35.Model.Repository
 
         public PlayerRepository()
         {
-            this.repository = new Repository();
+            this.repository = Repository.GetInstance();
         }
 
         public PlayerRepository(string database)
         {
-            this.repository = new Repository(database);
+            this.repository = Repository.GetInstance(database);
         }
 
         public bool SignUpPlayer(Player player)
@@ -115,7 +115,7 @@ namespace MVC_architecture_35.Model.Repository
 
         public DataTable GetPlayersTable()
         {
-            string commandInput = "SELECT * FROM Player WHERE IsAdmin='No' ORDER BY [ID]";
+            string commandInput = "SELECT * FROM Player ORDER BY [ID]";
             DataTable playerTable = this.repository.GetTable(commandInput);
             if(playerTable == null || playerTable.Rows.Count == 0)
             {

@@ -6,6 +6,8 @@ namespace MVC_architecture_35.Model.Repository
 {
     public class Repository
     {
+        //Singleton Design Pattern
+        private static Repository instanta = null;
         private SqlConnection connection;
 
         public Repository()
@@ -22,6 +24,24 @@ namespace MVC_architecture_35.Model.Repository
             connectionString += "Initial Catalog=" + dataBaseName + ";";
             connectionString += "Integrated Security=True;";
             this.connection = new SqlConnection(connectionString);
+        }
+
+        public static Repository GetInstance()
+        {
+            if( instanta == null )
+            {
+                instanta = new Repository();
+            }
+            return instanta;
+        }
+
+        public static Repository GetInstance(string dataBaseName)
+        {
+            if (instanta == null)
+            {
+                instanta = new Repository(dataBaseName);
+            }
+            return instanta;
         }
 
         public SqlConnection Connection

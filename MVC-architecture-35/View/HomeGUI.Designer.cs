@@ -40,12 +40,13 @@
             this.signOutButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.langComboBox = new System.Windows.Forms.ComboBox();
+            this.statisticsButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // homeTitle
             // 
-            this.homeTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.homeTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.homeTitle.AutoSize = true;
             this.homeTitle.Font = new System.Drawing.Font("Arial Rounded MT Bold", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -135,10 +136,10 @@
             this.playGameButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.playGameButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.playGameButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
-            this.playGameButton.Location = new System.Drawing.Point(643, 558);
+            this.playGameButton.Location = new System.Drawing.Point(643, 527);
             this.playGameButton.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.playGameButton.Name = "playGameButton";
-            this.playGameButton.Size = new System.Drawing.Size(241, 55);
+            this.playGameButton.Size = new System.Drawing.Size(241, 49);
             this.playGameButton.TabIndex = 19;
             this.playGameButton.Text = "PLAY GAME";
             this.playGameButton.UseVisualStyleBackColor = false;
@@ -152,10 +153,10 @@
             this.adminButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.adminButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.adminButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
-            this.adminButton.Location = new System.Drawing.Point(365, 558);
+            this.adminButton.Location = new System.Drawing.Point(365, 527);
             this.adminButton.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.adminButton.Name = "adminButton";
-            this.adminButton.Size = new System.Drawing.Size(257, 55);
+            this.adminButton.Size = new System.Drawing.Size(257, 49);
             this.adminButton.TabIndex = 20;
             this.adminButton.Text = "ADMIN";
             this.adminButton.UseVisualStyleBackColor = false;
@@ -169,10 +170,10 @@
             this.signOutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.signOutButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.signOutButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
-            this.signOutButton.Location = new System.Drawing.Point(112, 558);
+            this.signOutButton.Location = new System.Drawing.Point(112, 527);
             this.signOutButton.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.signOutButton.Name = "signOutButton";
-            this.signOutButton.Size = new System.Drawing.Size(231, 55);
+            this.signOutButton.Size = new System.Drawing.Size(231, 49);
             this.signOutButton.TabIndex = 21;
             this.signOutButton.Text = "SIGN OUT";
             this.signOutButton.UseVisualStyleBackColor = false;
@@ -204,7 +205,23 @@
             this.langComboBox.Size = new System.Drawing.Size(174, 32);
             this.langComboBox.TabIndex = 27;
             this.langComboBox.Text = "Langauge";
-            //this.langComboBox.SelectedIndexChanged += new System.EventHandler(this.langComboBox_SelectedIndexChanged);
+            // 
+            // statisticsButton
+            // 
+            this.statisticsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.statisticsButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.statisticsButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.statisticsButton.FlatAppearance.BorderSize = 0;
+            this.statisticsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.statisticsButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statisticsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
+            this.statisticsButton.Location = new System.Drawing.Point(365, 589);
+            this.statisticsButton.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.statisticsButton.Name = "statisticsButton";
+            this.statisticsButton.Size = new System.Drawing.Size(257, 49);
+            this.statisticsButton.TabIndex = 28;
+            this.statisticsButton.Text = "STATISTICS";
+            this.statisticsButton.UseVisualStyleBackColor = false;
             // 
             // HomeGUI
             // 
@@ -212,6 +229,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.statisticsButton);
             this.Controls.Add(this.langComboBox);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.signOutButton);
@@ -247,5 +265,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button signOutButton;
         private System.Windows.Forms.ComboBox langComboBox;
+        private System.Windows.Forms.Button statisticsButton;
     }
 }

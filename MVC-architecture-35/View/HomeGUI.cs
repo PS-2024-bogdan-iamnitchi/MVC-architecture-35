@@ -46,6 +46,11 @@ namespace MVC_architecture_35.View
             return this.signOutButton;
         }
 
+        public Button GetStatisctsButton()
+        {
+            return this.statisticsButton;
+        }
+
         //Labels
         public Label GetHomeTitleLabel()
         {

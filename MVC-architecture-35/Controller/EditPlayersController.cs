@@ -28,6 +28,8 @@ namespace MVC_architecture_35.Controller
 
             //handle events
             this.eventsManagement();
+            this.loadPlayers(null, null);
+
         }
 
         // View and Events -------------------------------------------------------------------------------------------------------------------
@@ -47,8 +49,6 @@ namespace MVC_architecture_35.Controller
             this.editPlayersGUI.GetDeleteButton().Click += new EventHandler(deletePlayer);
             this.editPlayersGUI.GetSearchButton().Click += new EventHandler(searchPlayers);
             this.editPlayersGUI.GetBackButton().Click += new EventHandler(toHomeView);
-
-            this.loadPlayers(null, null);
         }
 
         //Events --------------------------------------------------------------------------------------------------------------------------
@@ -86,7 +86,7 @@ namespace MVC_architecture_35.Controller
             }
             catch (Exception)
             {
-                MessageBox.Show("Error at row selection!");
+                this.editPlayersGUI.SetMessage(LangHelper.GetString("exception"), LangHelper.GetString("rowSelError"));
             }
         }
 
@@ -99,11 +99,11 @@ namespace MVC_architecture_35.Controller
                 if (list != null)
                     this.playersListToDataGridView(list);
                 else
-                    this.editPlayersGUI.SetMessage("Empty", "The list of players is empty!");
+                    this.editPlayersGUI.SetMessage(LangHelper.GetString("error"), LangHelper.GetString("listPlayerEmpty"));
             }
             catch (Exception exception)
             {
-                this.editPlayersGUI.SetMessage("Exception - GetPlayersList", exception.ToString());
+                this.editPlayersGUI.SetMessage(LangHelper.GetString("exception"), exception.ToString());
             }
         }
 
@@ -117,18 +117,18 @@ namespace MVC_architecture_35.Controller
                     bool result = this.playerRepository.AddPlayer(player);
                     if (result)
                     {
-                        this.editPlayersGUI.SetMessage("Success!", "Adding was completed successfully!");
+                        this.editPlayersGUI.SetMessage(LangHelper.GetString("succes"), LangHelper.GetString("addSuccess"));
                         this.resetPlayerFields();
                         this.editPlayersGUI.GetPlayersTable().Rows.Clear();
                         this.loadPlayers(null, null);
                     }
                     else
-                        this.editPlayersGUI.SetMessage("Failure!", "Adding was ended with failure!");
+                        this.editPlayersGUI.SetMessage(LangHelper.GetString("failure"), LangHelper.GetString("addFailure"));
                 }
             }
             catch (Exception exception)
             {
-                this.editPlayersGUI.SetMessage("Exception - Add", exception.ToString());
+                this.editPlayersGUI.SetMessage(LangHelper.GetString("exception"), exception.ToString());
             }
         }
 
@@ -145,21 +145,21 @@ namespace MVC_architecture_35.Controller
                         bool result = this.playerRepository.UpdatePlayer(selectedID, player);
                         if (result)
                         {
-                            this.editPlayersGUI.SetMessage("Success!", "Updating was completed successfully!");
+                            this.editPlayersGUI.SetMessage(LangHelper.GetString("succes"), LangHelper.GetString("updateSuccess"));
                             this.resetPlayerFields();
                             this.editPlayersGUI.GetPlayersTable().Rows.Clear();
                             this.loadPlayers(null, null);
                         }
                         else
-                            this.editPlayersGUI.SetMessage("Failure!", "Updating was ended with failure!");
+                            this.editPlayersGUI.SetMessage(LangHelper.GetString("failure"), LangHelper.GetString("updateFailure"));
                     }
                 }
                 else
-                    this.editPlayersGUI.SetMessage("Failure!", "No player has been selected to be updated!");
+                    this.editPlayersGUI.SetMessage(LangHelper.GetString("failure"), LangHelper.GetString("updateFailureSelectedPlayer"));
             }
             catch (Exception exception)
             {
-                this.editPlayersGUI.SetMessage("Exception - Update", exception.ToString());
+                this.editPlayersGUI.SetMessage(LangHelper.GetString("exception"), exception.ToString());
             }
         }
 
@@ -173,20 +173,20 @@ namespace MVC_architecture_35.Controller
                     bool result = this.playerRepository.DeletePlayer(selectedID);
                     if (result)
                     {
-                        this.editPlayersGUI.SetMessage("Success!", "Deletion was completed successfully!");
+                        this.editPlayersGUI.SetMessage(LangHelper.GetString("succes"), LangHelper.GetString("deleteSuccess"));
                         this.resetPlayerFields();
                         this.editPlayersGUI.GetPlayersTable().Rows.Clear();
                         this.loadPlayers(null, null);
                     }
                     else
-                        this.editPlayersGUI.SetMessage("Failure!", "Deletion was ended with failure!");
+                        this.editPlayersGUI.SetMessage(LangHelper.GetString("failure"), LangHelper.GetString("deleteFailure"));
                 }
                 else
-                    this.editPlayersGUI.SetMessage("Failure!", "No player has been selected to be deleted!");
+                    this.editPlayersGUI.SetMessage(LangHelper.GetString("failure"), LangHelper.GetString("deleteFailureSelectedPlayer"));
             }
             catch (Exception exception)
             {
-                this.editPlayersGUI.SetMessage("Exception - Delete", exception.ToString());
+                this.editPlayersGUI.SetMessage(LangHelper.GetString("exception"), exception.ToString());
             }
         }
 
@@ -209,7 +209,7 @@ namespace MVC_architecture_35.Controller
                             this.playersListToDataGridView(list);
                         }
                         else
-                            this.editPlayersGUI.SetMessage("Empty", "There is no player according to searched information!");
+                            this.editPlayersGUI.SetMessage(LangHelper.GetString("empty"), LangHelper.GetString("searchNoPlayerWithInfo"));
                     }
                     else
                     {
@@ -217,18 +217,18 @@ namespace MVC_architecture_35.Controller
                         if (list != null && list.Count > 0)
                             this.playersListToDataGridView(list);
                         else
-                            this.editPlayersGUI.SetMessage("Empty", "There is no player according to searched information!");
+                            this.editPlayersGUI.SetMessage(LangHelper.GetString("empty"), LangHelper.GetString("searchNoPlayerWithInfo"));
                     }
                 }
                 else
                 {
                     this.loadPlayers(null, null);
-                    this.editPlayersGUI.SetMessage("Empty", "The searched information is empty!");
+                    this.editPlayersGUI.SetMessage(LangHelper.GetString("empty"), LangHelper.GetString("searchEmptyInfo"));
                 }
             }
             catch (Exception exception)
             {
-                this.editPlayersGUI.SetMessage("Exception - Player Search", exception.ToString());
+                this.editPlayersGUI.SetMessage(LangHelper.GetString("exception"), exception.ToString());
             }
         }
 
@@ -245,37 +245,37 @@ namespace MVC_architecture_35.Controller
             uint playerID = (uint)this.editPlayersGUI.GetIdNUD().Value;
             if (playerID == 0)
             {
-                this.editPlayersGUI.SetMessage("Incomplete information!", "Player ID must be non-zero natural number!");
+                this.editPlayersGUI.SetMessage(LangHelper.GetString("incompleteInfo"), LangHelper.GetString("validinfoID"));
                 return null;
             }
             string fullName = this.editPlayersGUI.GetFullNameTextBox().Text;
             if (fullName == null || fullName.Length == 0)
             {
-                this.editPlayersGUI.SetMessage("Incomplete information!", "Player name is empty!");
+                this.editPlayersGUI.SetMessage(LangHelper.GetString("incompleteInfo"), LangHelper.GetString("validinfoName"));
                 return null;
             }
             string email = this.editPlayersGUI.GetEmailTextBox().Text;
             if (email == null || email.Length == 0)
             {
-                this.editPlayersGUI.SetMessage("Incomplete information!", "Email field is empty!");
+                this.editPlayersGUI.SetMessage(LangHelper.GetString("incompleteInfo"), LangHelper.GetString("validinfoEmail"));
                 return null;
             }
             uint age = (uint)this.editPlayersGUI.GetAgeNUD().Value;
             if (age <= 10)
             {
-                this.editPlayersGUI.SetMessage("Incomplete information!", "Player age must be greater or equal with 10!");
+                this.editPlayersGUI.SetMessage(LangHelper.GetString("incompleteInfo"), LangHelper.GetString("validinfoAge"));
                 return null;
             }
             string password = this.editPlayersGUI.GetPasswordTextBox().Text;
             if (password == null || password.Length == 0)
             {
-                this.editPlayersGUI.SetMessage("Incomplete information!", "Password field is empty!");
+                this.editPlayersGUI.SetMessage(LangHelper.GetString("incompleteInfo"), LangHelper.GetString("validinfoPassword"));
                 return null;
             }
             uint score = (uint)this.editPlayersGUI.GetScoreNUD().Value;
             if (score < 0)
             {
-                this.editPlayersGUI.SetMessage("Incomplete information!", "Player score must be greater or equal with 0!");
+                this.editPlayersGUI.SetMessage(LangHelper.GetString("incompleteInfo"), LangHelper.GetString("validinfoScore"));
                 return null;
             }
             return new Player(playerID, string.Empty, fullName, email, age, password, score);
@@ -319,7 +319,7 @@ namespace MVC_architecture_35.Controller
             }
             catch (Exception ex)
             {
-                this.editPlayersGUI.SetMessage("Exeption - GetLoggedInPlayer", ex.ToString());
+                this.editPlayersGUI.SetMessage(LangHelper.GetString("exception"), ex.ToString());
             }
             return player;
         }

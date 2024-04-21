@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="addFailure" xml:space="preserve">
+    <value>Adding was ended with failure!</value>
+  </data>
+  <data name="addSuccess" xml:space="preserve">
+    <value>Adding was completed successfully!</value>
+  </data>
   <data name="adminBtn" xml:space="preserve">
     <value>ADMIN</value>
   </data>
@@ -129,8 +135,29 @@
   <data name="clearBtn" xml:space="preserve">
     <value>CLEAR</value>
   </data>
+  <data name="congratulation" xml:space="preserve">
+    <value>Congratulation!</value>
+  </data>
   <data name="createAccountTxt" xml:space="preserve">
     <value>Create an Account</value>
+  </data>
+  <data name="criterion" xml:space="preserve">
+    <value>Criterion</value>
+  </data>
+  <data name="deleteFailure" xml:space="preserve">
+    <value>Deletion was ended with failure!</value>
+  </data>
+  <data name="deleteFailureSelectedPlayer" xml:space="preserve">
+    <value>No player has been selected to be deleted!</value>
+  </data>
+  <data name="deleteSuccess" xml:space="preserve">
+    <value>Deletion was completed successfully!</value>
+  </data>
+  <data name="draw" xml:space="preserve">
+    <value>Draw!</value>
+  </data>
+  <data name="drawGame" xml:space="preserve">
+    <value>Not Good not bad</value>
   </data>
   <data name="editPlayerTitle" xml:space="preserve">
     <value>View and Edit players</value>
@@ -138,14 +165,38 @@
   <data name="emailLabel" xml:space="preserve">
     <value>Email:</value>
   </data>
+  <data name="empty" xml:space="preserve">
+    <value>Empty!</value>
+  </data>
   <data name="english" xml:space="preserve">
     <value>English</value>
+  </data>
+  <data name="error" xml:space="preserve">
+    <value>Error!</value>
+  </data>
+  <data name="exception" xml:space="preserve">
+    <value>Exception!</value>
+  </data>
+  <data name="exitBtn" xml:space="preserve">
+    <value>EXIT</value>
+  </data>
+  <data name="exitQuestion" xml:space="preserve">
+    <value>Do you want to save your results?</value>
+  </data>
+  <data name="failure" xml:space="preserve">
+    <value>Failure!</value>
   </data>
   <data name="french" xml:space="preserve">
     <value>French</value>
   </data>
   <data name="fullNameLabel" xml:space="preserve">
     <value>Full Name:</value>
+  </data>
+  <data name="gameNotification" xml:space="preserve">
+    <value>Game notification!</value>
+  </data>
+  <data name="gameOver" xml:space="preserve">
+    <value>Game Over!</value>
   </data>
   <data name="gameTitle" xml:space="preserve">
     <value>Arrow Puzzle Game</value>
@@ -174,11 +225,23 @@
   <data name="homeTitle" xml:space="preserve">
     <value>This is Arrow Puzzle Game</value>
   </data>
+  <data name="incompleteInfo" xml:space="preserve">
+    <value>Incomplete information!</value>
+  </data>
+  <data name="leaveGame" xml:space="preserve">
+    <value>Leave Game!</value>
+  </data>
   <data name="levelLabel" xml:space="preserve">
     <value>Level:</value>
   </data>
+  <data name="listPlayerEmpty" xml:space="preserve">
+    <value>The list of players is empty!</value>
+  </data>
   <data name="loginBtn" xml:space="preserve">
     <value>LOGIN</value>
+  </data>
+  <data name="loginFailure" xml:space="preserve">
+    <value>Login was ended with failure!</value>
   </data>
   <data name="loginText1" xml:space="preserve">
     <value>Don't have an account?</value>
@@ -192,6 +255,18 @@
   <data name="loginTxt" xml:space="preserve">
     <value>Login</value>
   </data>
+  <data name="lostGame" xml:space="preserve">
+    <value>You have lost the game!</value>
+  </data>
+  <data name="notAllowed" xml:space="preserve">
+    <value>Not Allowed!</value>
+  </data>
+  <data name="notAllowedMessage" xml:space="preserve">
+    <value>You don't have rights to access this page!</value>
+  </data>
+  <data name="notYourTurn" xml:space="preserve">
+    <value>Not your turn!</value>
+  </data>
   <data name="opoMovesLabel" xml:space="preserve">
     <value>Oponent moves:</value>
   </data>
@@ -201,8 +276,20 @@
   <data name="passwordLabel" xml:space="preserve">
     <value>Password:</value>
   </data>
+  <data name="pause" xml:space="preserve">
+    <value>Pause!</value>
+  </data>
+  <data name="pauseText" xml:space="preserve">
+    <value>Game is paused!</value>
+  </data>
+  <data name="play" xml:space="preserve">
+    <value>Play!</value>
+  </data>
   <data name="playerdIDLabel" xml:space="preserve">
     <value>PlayerID:</value>
+  </data>
+  <data name="playerListEmpty" xml:space="preserve">
+    <value>Players list is empty!</value>
   </data>
   <data name="playGameBtn" xml:space="preserve">
     <value>PLAY  GAME</value>
@@ -210,14 +297,26 @@
   <data name="playGameTxt" xml:space="preserve">
     <value>Play Game</value>
   </data>
+  <data name="playText" xml:space="preserve">
+    <value>Game started!</value>
+  </data>
   <data name="plyMovesLabel" xml:space="preserve">
     <value>Your moves:</value>
   </data>
   <data name="plyScoreLabel" xml:space="preserve">
     <value>Your score:</value>
   </data>
+  <data name="rowSelError" xml:space="preserve">
+    <value>Error at row selection!</value>
+  </data>
   <data name="savedScoreLabel" xml:space="preserve">
     <value>Saved Score:</value>
+  </data>
+  <data name="saveFailure" xml:space="preserve">
+    <value>Saving the score was ended with failure!</value>
+  </data>
+  <data name="saveSuccess" xml:space="preserve">
+    <value>Saving the score was completed successfully!</value>
   </data>
   <data name="scoreLabel" xml:space="preserve">
     <value>Score:</value>
@@ -225,16 +324,73 @@
   <data name="searchBtn" xml:space="preserve">
     <value>SEARCH</value>
   </data>
+  <data name="searchEmptyInfo" xml:space="preserve">
+    <value>The searched information is empty!</value>
+  </data>
+  <data name="searchNoPlayerWithInfo" xml:space="preserve">
+    <value>There is no player according to searched information!</value>
+  </data>
+  <data name="selectMove" xml:space="preserve">
+    <value>Please select your move:</value>
+  </data>
   <data name="signOutBtn" xml:space="preserve">
     <value>SIGN OUT</value>
   </data>
   <data name="signUpBtn" xml:space="preserve">
     <value>SIGNUP</value>
   </data>
+  <data name="signUpFailure" xml:space="preserve">
+    <value>Creating new account was was ended with failure!</value>
+  </data>
+  <data name="signUpSuccess" xml:space="preserve">
+    <value>New account was created successfully!</value>
+  </data>
   <data name="signUpText" xml:space="preserve">
     <value>Already have an account?</value>
   </data>
   <data name="signUpTitle" xml:space="preserve">
     <value>Create Account</value>
+  </data>
+  <data name="startGameFirst" xml:space="preserve">
+    <value>Please start the game first!</value>
+  </data>
+  <data name="statistics" xml:space="preserve">
+    <value>Statistics</value>
+  </data>
+  <data name="statisticsBtn" xml:space="preserve">
+    <value>STATISTICS</value>
+  </data>
+  <data name="success" xml:space="preserve">
+    <value>Success!</value>
+  </data>
+  <data name="updateFailure" xml:space="preserve">
+    <value>Updating was ended with failure!</value>
+  </data>
+  <data name="updateFailureSelectedPlayer" xml:space="preserve">
+    <value>No player has been selected to be updated!</value>
+  </data>
+  <data name="updateSuccess" xml:space="preserve">
+    <value>Updating was completed successfully!</value>
+  </data>
+  <data name="validinfoAge" xml:space="preserve">
+    <value>Player age must be greater or equal with 10!</value>
+  </data>
+  <data name="validinfoEmail" xml:space="preserve">
+    <value>Email field is empty!</value>
+  </data>
+  <data name="validinfoID" xml:space="preserve">
+    <value>Player ID must be non-zero natural number!</value>
+  </data>
+  <data name="validinfoName" xml:space="preserve">
+    <value>Player name is empty!</value>
+  </data>
+  <data name="validinfoPassword" xml:space="preserve">
+    <value>Password field is empty!</value>
+  </data>
+  <data name="validinfoScore" xml:space="preserve">
+    <value>Player score must be greater or equal with 0!</value>
+  </data>
+  <data name="winGame" xml:space="preserve">
+    <value>You have win the game!</value>
   </data>
 </root>

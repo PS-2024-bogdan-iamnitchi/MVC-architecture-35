@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,6 +52,7 @@
     <Compile Include="Controller\HomeController.cs" />
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Controller\SignUpController.cs" />
+    <Compile Include="Controller\StatisticsController.cs" />
     <Compile Include="Language\LangHelper.cs" />
     <Compile Include="Language\strings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -61,6 +63,7 @@
     <Compile Include="Model\GameModel.cs" />
     <Compile Include="Model\Observable.cs" />
     <Compile Include="Model\Player.cs" />
+    <Compile Include="Model\PlayerStatistics.cs" />
     <Compile Include="Model\Repository\CreateDatabaseTables.cs" />
     <Compile Include="Model\Repository\PlayerRepository.cs" />
     <Compile Include="Model\Repository\Repository.cs" />
@@ -86,6 +89,12 @@
       <DependentUpon>HomeGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="View\IGUI.cs" />
+    <Compile Include="View\StatisticsGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\StatisticsGUI.Designer.cs">
+      <DependentUpon>StatisticsGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\LoginGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\HomeGUI.resx">
       <DependentUpon>HomeGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\StatisticsGUI.resx">
+      <DependentUpon>StatisticsGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LoginGUI.resx">
       <DependentUpon>LoginGUI.cs</DependentUpon>

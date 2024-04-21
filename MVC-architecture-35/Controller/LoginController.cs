@@ -73,13 +73,13 @@ namespace MVC_architecture_35.Controller
                         this.loginGUI.HideForm();
                     }
                     else
-                        this.loginGUI.SetMessage("Failure!", "Login was ended with failure!");
+                        this.loginGUI.SetMessage(LangHelper.GetString("failure"), LangHelper.GetString("loginFailure"));
 
                 }
             }
             catch (Exception ex)
             {
-                this.loginGUI.SetMessage("Exeption - Login", ex.ToString());
+                this.loginGUI.SetMessage(LangHelper.GetString("exception"), ex.ToString());
             }
         }
 
@@ -119,13 +119,13 @@ namespace MVC_architecture_35.Controller
         {
             if (email == null || email.Length == 0)
             {
-                this.loginGUI.SetMessage("Incomplete information!", "Email field is empty!");
+                this.loginGUI.SetMessage(LangHelper.GetString("incompleteInfo"), LangHelper.GetString("validinfoEmail"));
                 return false;
             }
 
             if (password == null || password.Length == 0)
             {
-                this.loginGUI.SetMessage("Incomplete information!", "Password field is empty!");
+                this.loginGUI.SetMessage(LangHelper.GetString("incompleteInfo"), LangHelper.GetString("validinfoPassword"));
                 return false;
             }
             return true;

@@ -61,6 +61,24 @@ namespace MVC_architecture_35.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Adding was ended with failure!.
+        /// </summary>
+        internal static string addFailure {
+            get {
+                return ResourceManager.GetString("addFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Adding was completed successfully!.
+        /// </summary>
+        internal static string addSuccess {
+            get {
+                return ResourceManager.GetString("addSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ADMIN.
         /// </summary>
         internal static string adminBtn {
@@ -97,11 +115,74 @@ namespace MVC_architecture_35.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Congratulation!.
+        /// </summary>
+        internal static string congratulation {
+            get {
+                return ResourceManager.GetString("congratulation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create an Account.
         /// </summary>
         internal static string createAccountTxt {
             get {
                 return ResourceManager.GetString("createAccountTxt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Criterion.
+        /// </summary>
+        internal static string criterion {
+            get {
+                return ResourceManager.GetString("criterion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deletion was ended with failure!.
+        /// </summary>
+        internal static string deleteFailure {
+            get {
+                return ResourceManager.GetString("deleteFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No player has been selected to be deleted!.
+        /// </summary>
+        internal static string deleteFailureSelectedPlayer {
+            get {
+                return ResourceManager.GetString("deleteFailureSelectedPlayer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deletion was completed successfully!.
+        /// </summary>
+        internal static string deleteSuccess {
+            get {
+                return ResourceManager.GetString("deleteSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Draw!.
+        /// </summary>
+        internal static string draw {
+            get {
+                return ResourceManager.GetString("draw", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not Good not bad.
+        /// </summary>
+        internal static string drawGame {
+            get {
+                return ResourceManager.GetString("drawGame", resourceCulture);
             }
         }
         
@@ -124,11 +205,65 @@ namespace MVC_architecture_35.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Empty!.
+        /// </summary>
+        internal static string empty {
+            get {
+                return ResourceManager.GetString("empty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to English.
         /// </summary>
         internal static string english {
             get {
                 return ResourceManager.GetString("english", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error!.
+        /// </summary>
+        internal static string error {
+            get {
+                return ResourceManager.GetString("error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exception!.
+        /// </summary>
+        internal static string exception {
+            get {
+                return ResourceManager.GetString("exception", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EXIT.
+        /// </summary>
+        internal static string exitBtn {
+            get {
+                return ResourceManager.GetString("exitBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to save your results?.
+        /// </summary>
+        internal static string exitQuestion {
+            get {
+                return ResourceManager.GetString("exitQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failure!.
+        /// </summary>
+        internal static string failure {
+            get {
+                return ResourceManager.GetString("failure", resourceCulture);
             }
         }
         
@@ -147,6 +282,24 @@ namespace MVC_architecture_35.Language {
         internal static string fullNameLabel {
             get {
                 return ResourceManager.GetString("fullNameLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game notification!.
+        /// </summary>
+        internal static string gameNotification {
+            get {
+                return ResourceManager.GetString("gameNotification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game Over!.
+        /// </summary>
+        internal static string gameOver {
+            get {
+                return ResourceManager.GetString("gameOver", resourceCulture);
             }
         }
         
@@ -232,6 +385,24 @@ namespace MVC_architecture_35.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Incomplete information!.
+        /// </summary>
+        internal static string incompleteInfo {
+            get {
+                return ResourceManager.GetString("incompleteInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Leave Game!.
+        /// </summary>
+        internal static string leaveGame {
+            get {
+                return ResourceManager.GetString("leaveGame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Level:.
         /// </summary>
         internal static string levelLabel {
@@ -241,11 +412,29 @@ namespace MVC_architecture_35.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The list of players is empty!.
+        /// </summary>
+        internal static string listPlayerEmpty {
+            get {
+                return ResourceManager.GetString("listPlayerEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to LOGIN.
         /// </summary>
         internal static string loginBtn {
             get {
                 return ResourceManager.GetString("loginBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login was ended with failure!.
+        /// </summary>
+        internal static string loginFailure {
+            get {
+                return ResourceManager.GetString("loginFailure", resourceCulture);
             }
         }
         
@@ -286,6 +475,42 @@ namespace MVC_architecture_35.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You have lost the game!.
+        /// </summary>
+        internal static string lostGame {
+            get {
+                return ResourceManager.GetString("lostGame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not Allowed!.
+        /// </summary>
+        internal static string notAllowed {
+            get {
+                return ResourceManager.GetString("notAllowed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You don&apos;t have rights to access this page!.
+        /// </summary>
+        internal static string notAllowedMessage {
+            get {
+                return ResourceManager.GetString("notAllowedMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not your turn!.
+        /// </summary>
+        internal static string notYourTurn {
+            get {
+                return ResourceManager.GetString("notYourTurn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Oponent moves:.
         /// </summary>
         internal static string opoMovesLabel {
@@ -313,11 +538,47 @@ namespace MVC_architecture_35.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Pause!.
+        /// </summary>
+        internal static string pause {
+            get {
+                return ResourceManager.GetString("pause", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game is paused!.
+        /// </summary>
+        internal static string pauseText {
+            get {
+                return ResourceManager.GetString("pauseText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Play!.
+        /// </summary>
+        internal static string play {
+            get {
+                return ResourceManager.GetString("play", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to PlayerID:.
         /// </summary>
         internal static string playerdIDLabel {
             get {
                 return ResourceManager.GetString("playerdIDLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Players list is empty!.
+        /// </summary>
+        internal static string playerListEmpty {
+            get {
+                return ResourceManager.GetString("playerListEmpty", resourceCulture);
             }
         }
         
@@ -340,6 +601,15 @@ namespace MVC_architecture_35.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Game started!.
+        /// </summary>
+        internal static string playText {
+            get {
+                return ResourceManager.GetString("playText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your moves:.
         /// </summary>
         internal static string plyMovesLabel {
@@ -358,11 +628,38 @@ namespace MVC_architecture_35.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error at row selection!.
+        /// </summary>
+        internal static string rowSelError {
+            get {
+                return ResourceManager.GetString("rowSelError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Saved Score:.
         /// </summary>
         internal static string savedScoreLabel {
             get {
                 return ResourceManager.GetString("savedScoreLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Saving the score was ended with failure!.
+        /// </summary>
+        internal static string saveFailure {
+            get {
+                return ResourceManager.GetString("saveFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Saving the score was completed successfully!.
+        /// </summary>
+        internal static string saveSuccess {
+            get {
+                return ResourceManager.GetString("saveSuccess", resourceCulture);
             }
         }
         
@@ -385,6 +682,33 @@ namespace MVC_architecture_35.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The searched information is empty!.
+        /// </summary>
+        internal static string searchEmptyInfo {
+            get {
+                return ResourceManager.GetString("searchEmptyInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is no player according to searched information!.
+        /// </summary>
+        internal static string searchNoPlayerWithInfo {
+            get {
+                return ResourceManager.GetString("searchNoPlayerWithInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select your move:.
+        /// </summary>
+        internal static string selectMove {
+            get {
+                return ResourceManager.GetString("selectMove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SIGN OUT.
         /// </summary>
         internal static string signOutBtn {
@@ -403,6 +727,24 @@ namespace MVC_architecture_35.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Creating new account was was ended with failure!.
+        /// </summary>
+        internal static string signUpFailure {
+            get {
+                return ResourceManager.GetString("signUpFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New account was created successfully!.
+        /// </summary>
+        internal static string signUpSuccess {
+            get {
+                return ResourceManager.GetString("signUpSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Already have an account?.
         /// </summary>
         internal static string signUpText {
@@ -417,6 +759,132 @@ namespace MVC_architecture_35.Language {
         internal static string signUpTitle {
             get {
                 return ResourceManager.GetString("signUpTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please start the game first!.
+        /// </summary>
+        internal static string startGameFirst {
+            get {
+                return ResourceManager.GetString("startGameFirst", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Statistics.
+        /// </summary>
+        internal static string statistics {
+            get {
+                return ResourceManager.GetString("statistics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to STATISTICS.
+        /// </summary>
+        internal static string statisticsBtn {
+            get {
+                return ResourceManager.GetString("statisticsBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Success!.
+        /// </summary>
+        internal static string success {
+            get {
+                return ResourceManager.GetString("success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Updating was ended with failure!.
+        /// </summary>
+        internal static string updateFailure {
+            get {
+                return ResourceManager.GetString("updateFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No player has been selected to be updated!.
+        /// </summary>
+        internal static string updateFailureSelectedPlayer {
+            get {
+                return ResourceManager.GetString("updateFailureSelectedPlayer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Updating was completed successfully!.
+        /// </summary>
+        internal static string updateSuccess {
+            get {
+                return ResourceManager.GetString("updateSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Player age must be greater or equal with 10!.
+        /// </summary>
+        internal static string validinfoAge {
+            get {
+                return ResourceManager.GetString("validinfoAge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email field is empty!.
+        /// </summary>
+        internal static string validinfoEmail {
+            get {
+                return ResourceManager.GetString("validinfoEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Player ID must be non-zero natural number!.
+        /// </summary>
+        internal static string validinfoID {
+            get {
+                return ResourceManager.GetString("validinfoID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Player name is empty!.
+        /// </summary>
+        internal static string validinfoName {
+            get {
+                return ResourceManager.GetString("validinfoName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password field is empty!.
+        /// </summary>
+        internal static string validinfoPassword {
+            get {
+                return ResourceManager.GetString("validinfoPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Player score must be greater or equal with 0!.
+        /// </summary>
+        internal static string validinfoScore {
+            get {
+                return ResourceManager.GetString("validinfoScore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have win the game!.
+        /// </summary>
+        internal static string winGame {
+            get {
+                return ResourceManager.GetString("winGame", resourceCulture);
             }
         }
     }
